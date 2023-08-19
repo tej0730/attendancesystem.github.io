@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <link rel="stylesheet" href="search css.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   </head>
+   <body>
+      <div class="Search">
+         <div class="button">
+            Search
+            <span class="fas fa-bars"></span>
+         </div>
+         <ul>
+            <li><a href="#">polo Forest</a></li>
+            <li><a href="#">somnath</a></li>
+            <li><a href="#">Gira waterfall</a></li>
+            <li><a href="#">Mandvi beach</a></li>
+            <li><a href="#">Statue of unity</a></li>
+         </ul>
+      </div>
+      <script>
+         $(document).ready(function(){
+           $('.button').click(function(){
+             if($(this).hasClass('expand')){
+               $('ul').slideUp(function(){
+                 $('.button').removeClass('expand');
+                 $('.fas').removeClass('expand')
+               });
+             }else{
+               $(this).addClass('expand');
+               setTimeout(function(){
+                 $('.fas').addClass('expand');
+                 $('ul').stop().slideDown();
+               },200);
+             }
+           });
+         });
+      </script>
+   </body>
+</html>

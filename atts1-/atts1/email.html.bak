@@ -1,0 +1,172 @@
+<?php 
+
+	include "config.php";
+
+	  if (isset($_POST['submit'])) {
+
+		 $name = $_POST['name'];
+		
+		$user_id = $_POST['user_id'];
+
+		$course = $_POST['course'];
+
+		$email = $_POST['email'];
+
+		$password = $_POST['password'];
+
+		$gender = $_POST['gender'];
+
+		$sql = "INSERT INTO `users`(`name`,`id`, `course`, `email`, `password`, `gender`) VALUES ('$name','$user_id','$course','$email','$password','$gender')";
+		$sql1= "INSERT INTO `attends`(`id`,`name`, `course`) VALUES ('$user_id','$name','$course')";
+
+		$result = $conn->query($sql);
+		$result = $conn->query($sql1); 
+
+		if ($result == TRUE) {
+
+		  echo "New record created successfully.";
+
+		}else{
+
+		  echo "Error:". $sql . "<br>". $conn->error;
+
+		} 
+
+		$conn->close(); 
+
+	  }
+
+	?>
+
+<!DOCTYPE html>
+<html>
+<style>
+body{
+		    background-image: url("24.jpg");
+		
+		  background-size: cover;
+		   background-position: top right;
+	}
+	{
+  font-family:'Times New Roman', serif;
+  font-size :large;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+form {
+
+  border: 3px solid #f1f1f1;
+  font-family: Arial;
+}
+
+.container {
+
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  margin-top: 16px;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
+ .logo {
+      height: 65px;
+      width: 65px;
+      float: left;
+    }
+    .logob {
+      height: 80px;
+      width: 80px;
+      float: left;
+    }
+ 
+    .navbar {
+	
+      overflow: hidden;
+      background-color: #203354;
+      background-image: #66b2b2;
+    }
+
+    .navbar a {
+  
+      float: right;
+      margin-left: 10px;
+      font-size: 20px;
+      color: white;
+	  font-family:"Gill Sans", sans-serif;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: right;
+      overflow: hidden;}
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      color:black;
+    }
+	.email{
+	width:70%;
+	}
+</style>
+<body>
+<div class="navbar">
+
+    <img class="logo" src="att2.png" alt="attends">
+    <div class="dropdown">
+     
+
+      <a href="#">Login</a>
+	  	   <a href="email.html">Email</a>
+      <a href="#">About</a>
+      <a href="#">Home</a>
+
+      </div>
+  </div>
+  
+  <br><br><br>
+
+<form action="" method="POST">
+  <div class="container">
+  <div class="email">
+    <h2>Email Us</h2>
+    <p>Subscribe to our email to get regular updates.</p>
+  </div>
+
+  <div class="container" style="background-color:white">
+    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Email address" name="mail" required>
+    <label>
+      <input type="checkbox" checked="checked" name="subscribe"> Daily Newsletter
+    </label>
+  </div>
+
+  <div class="container">
+    <input type="submit" value="Subscribe">
+  </div>
+  </div>
+</form>
+
+</body>
+</html>

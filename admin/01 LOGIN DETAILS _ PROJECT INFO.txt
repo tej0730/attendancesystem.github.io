@@ -1,0 +1,22 @@
+Database Name: attmgsystem
+
+Admin Login Details
+
+Username: admin
+Password: admin
+
+
+Student Login Details
+
+Username: dhara
+Password: 12345
+
+Teacher Login Details
+
+Username: bhumi
+Password: 12345
+
+queryyyyy
+select s.st_name,s.st_sem,a.course,a.st_status,a.stat_date
+from students s,attendance a
+where a.stat_id=s.st_id and s.st_id=8

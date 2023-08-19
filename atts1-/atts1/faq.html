@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Segoe UI;
+
+            font-size: 50px;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  margin: 180px 20px;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+.logo {
+      height: 65px;
+      width: 65px;
+      float: left;
+    }
+    .logob {
+      height: 80px;
+      width: 80px;
+      float: left;
+    }
+.navbar {
+	
+      overflow: hidden;
+      background-color: #203354;
+      background-image: #66b2b2;
+    }
+
+    .navbar a {
+  
+      float: right;
+      margin-left: 10px;
+      font-size: 20px;
+      color: white;
+	  font-family:"Gill Sans", sans-serif;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: right;
+      overflow: hidden;}
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      color:black;
+    }
+    </style>
+</head>
+
+<body>
+<div class="navbar">
+
+    <img class="logo" src="att2.png" alt="attends">
+    <div class="dropdown">
+     
+
+      <a href="http://localhost/atts1/">Login</a>
+      <a href="#">About</a>
+      <a href="home%20(2).html">Home</a>
+
+      </div>
+  </div>
+
+    <h1>FAQs</h1>
+
+    <button class="accordion">
+        <h3>Q1. Can I change my name on my profile?</h3>
+        <hr>
+    </button>
+    <div class="panel">
+        <h4>Ans.</h4>
+        <p>Yes, you can change your name on your profile by click on your profile and then click on edit.</p>
+    </div>
+
+    <button class="accordion">
+        <h3>Q2. Can I create new account with same email id?</h3>
+        <hr>
+    </button>
+    <div class="panel">
+        <h4>Ans.</h4>
+        <p>No, you cannot create new account with same email id.</p>
+    </div>
+
+    <button class="accordion">
+        <h3>Q3. I don't have an account.How do I create one?</h3>
+        <hr>
+    </button>
+    <div class="panel">
+        <h4>Ans.</h4>
+        <p>Click on sign up and then proceed by filling required details.</p>
+    </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+    
+</body>
+
+</html>

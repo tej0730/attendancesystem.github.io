@@ -1,0 +1,255 @@
+<?php 
+
+include "config.php";
+
+$sql = "SELECT * FROM users";
+
+$result = $conn->query($sql);
+
+?>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<style>
+  body{
+		    background-image: url("24.jpg");
+		  width:100%;
+		  height:100%;
+		  background-size: cover;
+		   background-position: top right;
+	}
+{
+  font-family:'Times New Roman', serif;
+  font-size :large;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td, th {
+  border: 1px solid black;
+  padding: 8px;
+  background-color: #c8e1cc;
+  
+}
+
+ tr:hover {color: red;}
+
+ th {
+	font-size:25px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+ background-color:#336092;
+  color: white;
+}
+h2{
+	 display: block;
+  font-size: 3.5em;
+  text-align:center;
+  color:white;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h4{
+	display: block;
+  font-size: 1.3em;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+ .logo {
+      height: 65px;
+      width: 65px;
+    }
+ul  {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+}
+.logo {
+      height: 65px;
+      width: 65px;
+      float: left;
+    }
+    .logob {
+      height: 80px;
+      width: 80px;
+      float: left;
+    }
+.navbar {
+	
+      overflow: hidden;
+      background-color: #203354;
+      background-image: #66b2b2;
+    }
+
+    .navbar a {
+  
+      float: right;
+      margin-left: 10px;
+      font-size: 20px;
+      color: white;
+	  font-family:"Gill Sans", sans-serif;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: right;
+      overflow: hidden;}
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      color:black;
+    }
+
+ 
+
+</style>
+
+    <title>View Page</title>
+
+
+</head>
+
+<body>
+<div class="navbar">
+
+    <img class="logo" src="att2.png" alt="attends">
+    <div class="dropdown">
+     
+
+      <a href="http://localhost/atts1/">Login</a>
+
+      </div>
+  </div>
+
+  <!--<div class="navbar">
+
+    <img class="logo" src="att1.png" alt="attends">
+
+    
+  
+      
+	     
+    <ul>
+	<li>
+    <a href="#home">About</a></li>
+	<li>
+    <a href="#home">Home</a>
+	</li>
+	<li>
+    <a href="#news">FAQs</a>
+</li>
+<li>
+    <a href="http://localhost/atts1/mca.php">MCA</a>
+</li>
+<li>
+    <a href="http://localhost/atts1/msc.php">MSC</a>
+</li>
+<li>
+    <a href="http://localhost/atts1/pg.php">PGDCA</a>
+</li>
+<li>
+    <a href="http://localhost/atts1/ai.php">MSC AI ML</a>
+</li>
+  </ul>
+  -->
+    <div class="container">
+
+        <h2>Users</h2>
+
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+        <th> ID</th>
+
+        <th> Name</th>
+
+        <th>Course</th>
+
+        <th>Email</th>
+
+        <th>Gender</th>
+
+        <th>Action</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody> 
+
+        <?php
+
+            if ($result->num_rows > 0) {
+
+                while ($row = $result->fetch_assoc()) {
+
+        ?>
+
+                    <tr>
+
+                    <td><?php echo $row['id']; ?></td>
+
+                    <td><?php echo $row['name']; ?></td>
+
+                    <td><?php echo $row['course']; ?></td>
+
+                    <td><?php echo $row['email']; ?></td>
+
+                    <td><?php echo $row['gender']; ?></td>
+
+                    <td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+
+                    </tr>                       
+
+        <?php       }
+
+            }
+
+        ?>                
+
+    </tbody>
+	
+
+</table>
+<a class="btn btn-info" href="index.php">Insert</a>
+    </div> 
+
+</body>
+
+</html>
